@@ -1,0 +1,65 @@
+name: CI
+
+# Trigger workflow on push events to main branch and pull requests
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['20.x']
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm' # Cache npm dependencies
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint with Biome
+        run: npx @biomejs/biome lint src/
+        # For a Biome-specific badge, you would typically need a separate tool
+        # or a custom script that determines lint status. For simplicity, this is a run step.
+
+      - name: Format with Biome
+        run: npx @biomejs/biome format --write src/
+        # Similar to lint, formatting status isn't directly a common badge metric unless custom-built.
+
+      - name: Run Vitest
+        run: npm run test:unit # Assuming 'test:unit' runs Vitest
+        # To integrate Codecov, ensure your Vitest configuration exports coverage data
+        # and that Codecov is configured to upload it.
+        # You might need to add a step here to upload coverage to Codecov:
+        # - name: Upload coverage to Codecov
+        #   uses: codecov/codecov-action@v4
+        #   with:
+        #     token: ${{ secrets.CODECOV_TOKEN }} # GitHub secret for Codecov token
+
+      - name: Run Playwright E2E Tests
+        run: npm run test:e2e # Assuming 'test:e2e' runs Playwright
+
+      - name: Build Application (Tauri)
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PASSPHRASE: ${{ secrets.TAURI_SIGNING_PASSPHRASE }}
+          TAURI_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
+        run: npm run build # Assuming npm run build handles Tauri build
+
+      # Example for deploying to GitHub Pages if applicable, adjust as needed
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./dist # Or your build output directory
