@@ -1,60 +1,52 @@
 ---
 name: Bug Report
-about: Report an issue or unexpected behavior in the EcoSnap Mobile App.
-title: "[BUG] Short, descriptive summary of the issue"
-labels: ["bug", "triage"]
-assignees:
+about: Create a report to help us improve
+title: 'Bug: '
+labels: bug
+assignees: ''
 
----
 
-## 1. Context & Environment
+--- 
 
-**(REQUIRED) Describe the environment where the bug occurred. Be precise. Adhering to the Apex Standard means detailed context is mandatory for fast resolution.**
+**Describe the bug**
 
-*   **Application Version:** (e.g., v1.2.0 or latest commit hash)
-*   **Platform:** (iOS / Android / Web Simulator)
-*   **Device Model:** (e.g., iPhone 15 Pro, Samsung Galaxy S24)
-*   **OS Version:** (e.g., iOS 18.1, Android 15)
-*   **React Native/Expo Version:** (If applicable, check `package.json`)
+A clear and concise description of what the bug is. What did you expect to happen and what actually happened?
 
-## 2. Description of the Bug
+**To Reproduce**
 
-A clear, concise description of what the bug is and what you expected to happen.
+Steps to reproduce the behavior:
+1. Go to '...' 
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-**Expected Behavior:**
+**Expected Behavior**
 
-*What should have happened?*
+A clear and concise description of what you expected to happen.
 
-**Actual Behavior:**
+**Screenshots**
 
-*What actually happened?*
+If applicable, add screenshots to help explain your problem. (Ensure no PII is visible).
 
-## 3. Reproduction Steps
+**Environment**
 
-**(CRITICAL) Provide the exact, repeatable steps necessary to trigger this bug. Use numbered lists. If this cannot be reproduced, the ticket may be closed by the triage agent.**
+*   **App Version:** (e.g., 1.0.0)
+*   **Device:** (e.g., iPhone 14 Pro, Samsung Galaxy S23)
+*   **OS:** (e.g., iOS 17.1, Android 14)
+*   **React Native Version:** (e.g., 0.72.5)
+*   **Expo Version:** (e.g., 49.0.15)
 
-1.  Launch the application.
-2.  Navigate to the [Screen Name] screen.
-3.  Tap the [Button Name] button.
-4.  Capture an image of [Specific Object].
-5.  Observe the output classification.
+**Additional Context**
 
-## 4. Evidence (Screenshots / Logs)
+Add any other context about the problem here. This might include logs, relevant user actions, or anything else that could help us debug the issue.
 
-Attach any relevant screenshots, screen recordings, or crash logs here. For logs, please use a service like Pastebin or Gist and link them below.
+**System/Agent Directives (For Reference)**
 
-*   [Link to Screenshot 1]
-*   [Link to Log File]
+This section is for reference regarding the project's AI Agent directives. For detailed guidance, please refer to the `AGENTS.md` file.
 
-## 5. Architectural Analysis (Optional but Encouraged)
+*   **Project Name:** EcoSnap-AI-Waste-Classification-Mobile-App
+*   **Primary Stack:** React Native, Expo, TypeScript, TensorFlow.js (for on-device ML)
+*   **Architecture:** Modular.
+*   **Key Principles:** Zero-Defect, High-Velocity, Future-Proof, Professional Archival.
 
-If you suspect which component is failing (e.g., TypeScript type mismatch in the prediction service, image tensor processing on the client), describe it here. This leverages the Modular Monolith understanding of the project structure.
-
-*Example: It seems the image preprocessing utility (`src/utils/imageTransform.ts`) is failing to correctly resize the input tensor before sending it to the ML model endpoint.*
-
-## 6. Priority Assessment
-
-*   **[ ] Blocker:** Prevents core functionality (e.g., image capture fails entirely).
-*   **[ ] Critical:** Major feature degradation (e.g., incorrect classification for 50% of common items).
-*   **[ ] Major:** Significant UX issue or minor feature failure.
-*   **[ ] Minor:** Cosmetic issue or edge-case failure.
+_Please ensure all bug reports align with the project's commitment to quality and the principles outlined in `AGENTS.md`._
