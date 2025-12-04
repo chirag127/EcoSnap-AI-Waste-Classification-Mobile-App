@@ -1,8 +1,6 @@
-# Node / Yarn / npm / pnpm
+# Node/NPM
 npm-debug.log*
-yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 node_modules/
 .env
 .env.local
@@ -10,53 +8,24 @@ node_modules/
 .env.test.local
 .env.production.local
 
-# Editor directories and files
+# Expo/React Native
+.expo/
+*.jks
+*.keystore
+android/build/
+android/app/build/
+iOS/build/
 .DS_Store
-.idea
-.vscode/
-*.sublime-project
-*.sublime-workspace
 
 # Build output
-dist/
-.next/
-.nuxt/
-.output/
 build/
+dist/
 
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# OS generated files
-.DS_Store
-._*
-.Spotlight-V100
-.Trashes
-Icon
-Thumbs.db
-
-# Misc
-*.lock
-.eslintcache
-.babelrc
-.eslintrc.js
-.prettierrc
-.stylelintrc
-*.local
-
-# Expo specific files
-.expo/
-expo-user.json
-
-# React Native specific files
-android/app/build/
-android/build/
-iOS/build/
-
-# Test files
-*.test.js
-*.spec.js
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
