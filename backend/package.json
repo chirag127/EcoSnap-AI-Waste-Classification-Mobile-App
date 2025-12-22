@@ -18,7 +18,7 @@
     "dotenv": "^16.6.1",
     "express": "^4.21.2",
     "form-data": "^4.0.5",
-    "groq-sdk": "^0.15.0",
+    "groq-sdk": "^0.37.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.20.1",
     "nodemailer": "^6.10.1"
